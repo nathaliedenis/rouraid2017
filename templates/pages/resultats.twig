@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}Résultats{% endblock %}
+
+{% block page %}<div class="page resultats">{% endblock %}
+
+{% block contenu %}
+
+        <section class="content">
+
+            <div class="agauche">
+
+            <div class="texte">
+
+            <h2 class="bounceInLeft animated">Tous les résultats</h2>
+
+            <form method='POST' action='?page=resultats'>
+                
+                <label for='dossard'><strong>Pour voir le classement de votre équipe, rentrez votre numéro de dossard :</strong></label>
+                <input type="text" id='dossard' name='dossard'/>
+                <input type="submit" name='envoidossard' value='ok'/>
+            </form>
+
+            {% if scores %}
+      
+                    <table class="flipInX animated">
+                    {% for score in scores %}    
+                        <tr>
+                            <td>{{ score.dossard }}</td>
+                            <td>{{ score.equipe_nom }}</td>
+                            <td>{{ score.cat_sexe }}</td>
+                            <td>{{ score.enfant_prenom }} et {{ score.adulte_prenom }}</td>
+                            <td>{{ score.point_cross }}</td>
+                            <td>{{ score.point_quizz }}</td>
+                            <td>{{ score.point_parcours }}</td>
+                            <td>{{ score.point_tir }}</td>
+                            <td>{{ score.point_co }}</td>
+                            <td>{{ score.point_vtt }}</td>
+                            <td>{{ score.total_point }}</td>
+                            <td>{{ score.total_classement }}</td>
+                        </tr>
+                    {% endfor %}   
+                    </table>
+
+            {% endif %}
+        
+            <table>
+
+                <tr>
+                    <th>N° dossard<a href="?page=resultats&tri=dossard">&gt;</a></th>
+                    <th>Nom de l'équipe<a href="?page=resultats&tri=equipe_nom">&gt;</a></th>
+                    <th>Catégorie<a href="?page=resultats&tri=cat_sexe,total_classement">&gt;</a></th>
+                    <th>Prénoms<a href="?page=resultats&tri=enfant_prenom">&gt;</a></th>
+                    <th>Cross<a href="?page=resultats&tri=point_cross DESC">&gt;</a></th>
+                    <th>Quizz<a href="?page=resultats&tri=point_quizz DESC">&gt;</a></th>
+                    <th>Parcours accrobatique<a href="?page=resultats&tri=point_parcours DESC">&gt;</a></th>
+                    <th>Tir à la carabine<a href="?page=resultats&tri=point_tir DESC">&gt;</a></th>
+                    <th>Course d'orientation<a href="?page=resultats&tri=point_co DESC">&gt;</a></th>
+                    <th>Biathlon<a href="?page=resultats&tri=point_vtt DESC">&gt;</a></th>
+                    <th>Total de points<a href="?page=resultats&tri=total_point DESC">&gt;</a></th>
+                    <th>Classement/categorie<a href="?page=resultats&tri=cat_sexe,total_classement">&gt;</a></th>
+                </tr>
+
+
+                {% for resultat in resultats %}
+
+                <tr {% if resultat.cat_sexe starts with 'Pit' %} class="pitchoun" {% endif %}
+                    {% if resultat.cat_sexe starts with 'Pou' %} class="poussin" {% endif %}
+                    {% if resultat.cat_sexe starts with 'Ben' %} class="benjamin" {% endif %}
+                    {% if resultat.cat_sexe starts with 'Col' %} class="college" {% endif %}>
+                    
+                    <td>{{ resultat.dossard }}</td>
+                    <td>{{ resultat.equipe_nom }}</td>
+                    <td>{{ resultat.cat_sexe }}</td>
+                    <td>{{ resultat.enfant_prenom }} et {{ resultat.adulte_prenom }}</td>
+                    <td>{{ resultat.point_cross }}</td>
+                    <td>{{ resultat.point_quizz }}</td>
+                    <td>{{ resultat.point_parcours }}</td>
+                    <td>{{ resultat.point_tir }}</td>
+                    <td>{{ resultat.point_co }}</td>
+                    <td>{{ resultat.point_vtt }}</td>
+                    <td>{{ resultat.total_point }}</td>
+                    <td>{{ resultat.total_classement }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+            
+        </section>
+         
+
+{% endblock %}
+
+
+                    

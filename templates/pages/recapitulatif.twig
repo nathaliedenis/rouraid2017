@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}Recapitulatif{% endblock %}
+
+{% block page %}<div class="page inscription repas recapitulatif">{% endblock %}
+
+{% block contenu %}
+   
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+            <div class="agauche">
+
+                <!--commande-->
+                {{ include('partial/_commande.twig') }}
+        
+                <div class="fiche">
+
+                    <h2>RECAPITULATIF</h2>
+                    <div>
+
+                    <div class="panier">
+                        <table>
+                            <tr><th>Prix total :</th><td id="total" data-montant="{{ montant_panier }}">{{ montant_panier }} €</td></tr>
+                            <tr><td colspan="2">Ce prix comprend :</td></tr>
+
+                            
+                                {% for team in teams %}
+                                    <tr><th>Equipe {{ loop.index }} :</th><td>{{ prix.tarif_normal }} €</td></tr>
+                                {% endfor %}
+                            
+
+                            {% if nb_repas %}
+                                <tr><th>Repas x {{ nb_repas }} :</th><td>{{ nb_repas * prix.tarif_repas }} €</td></tr>
+                            {% endif %}
+
+                        </table>
+                    </div>
+
+                    <div class="recap">
+                        
+                        {% for k, team in teams %}
+
+                            
+                            <ul class="equipe">
+                                <li><strong>Equipe : {{ loop.index }}</strong><a href="?page=recapitulatif&index_equipe={{ k }}" title="supprimer l'équipe {{ loop.index }}"><img src="img/icon_poubelle.png" alt="supprimer cette équipe"/></a>
+                                    <ul>
+                                        <li>Nom de l'équipe : <strong>{{ team.equipe_nom }}</strong></li>
+                                        <li>L'adulte participant : <strong>{{ team.adulte_prenom }} {{ team.adulte_nom }} ({{ team.lien_avec_enfant }})</strong></li>
+                                        <li>L'enfant participant : <strong>{{ team.enfant_prenom }} {{ team.enfant_nom }} ({{ team.enfant_naissance }})</strong></li>
+                                        <li>Catégorie : <strong>{{ team.niveau }} - {{ team.enfant_sexe }}</strong></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        
+                        {% endfor %} 
+                    </div>    
+                            
+                    <div class="repas">
+
+                     {% if nb_repas > 0 %}
+                            <p>Repas supplémentaires : {{ nb_repas }}</p>
+                            <table><tr><td>
+                                <a href="?page=recapitulatif&repas=moins">-</a></td></tr>
+                                <tr><td>
+                                <a href="?page=recapitulatif&repas=plus">+</a></td></tr>
+                            </table>
+                    {% else %}
+                            <p>Aucun repas commandé</p>
+                    {% endif %}
+
+                    </div>
+                       
+                    
+                        
+                        {% if famille > 1 %}
+                        
+                        <form method="POST" action="?page=recapitulatif">
+                            <input type="checkbox" id="reduction" name="reduction"/>
+                            <label class="case" for="reduction">Une réduction de 3€ par équipe est accordée aux familles inscrivant plusieurs équipes en même temps.<br/>Je confirme que mes équipes sont de la même famille.</label>
+                        </form>
+                        
+                        {% endif %}
+
+                        {% if teams %}
+                            <form method="POST" action="?page=confirm_commande">
+                                <div class="errorjs radio">.</div>
+                                <input type="checkbox" id="condition" name="condition" required/>
+                                <label for="condition">
+                                J'ai compris que le certificat médical est obligatoire le jour du raid. En cas de non présentation, l'équipe ne pourra pas participer au raid.<br/>
+                                J'accepte le règlement du Raid. <a href="reglement.pdf"> Voir le règlement</a></label>
+                                <input type="hidden" id="prix" name="prix" value="{{ montant_panier }}"/>
+                                <input class="bouton" type="submit" name="validerinscription" value="VALIDER ET PAYER"/>
+                            </form>
+
+                        {% else %}
+
+                            <form method="POST" action="?page=confirm_commande">
+                                <input class="condition_cache" type="checkbox" id="condition" name="condition" checked style='display:none'/>
+                                <input type="hidden" id="prix" name="prix" value="{{ montant_panier }}"/>
+                                <input class="bouton" type="submit" name="validerinscription" value="VALIDER ET PAYER"/>
+                            </form>
+
+                        {% endif %}
+
+
+                        <form method="POST" action="index.php">
+                            <input class="bouton" type="submit" name="annulerinscription" value="ANNULER"/>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+{% endblock %}

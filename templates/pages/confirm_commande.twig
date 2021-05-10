@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" >
+	<head>
+		<title>PAYPAL</title>
+		<meta charset="utf-8" />
+
+		<style type="text/css"> 
+			body{
+				margin:auto;
+				text-align: center;
+			}
+			div{
+				width: 50%;
+				border: 1px solid black;
+				margin: 50px auto;
+				text-align: center;
+				padding: 10px;
+			}
+			table{
+				display: inline;
+				text-align: left;
+				font-size: 1.5em;
+
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div><h1>Plateforme de paiement paypal</h1>
+		<table>
+			<tr><th>Prix :</th><td>{{prix}} €</td></tr>
+			<tr><th>Ref. :</th><td>{{ref}}</td></tr>
+		</table>
+		</div>
+		
+
+		<form method='POST' action='?page=confirm_paiement'>
+			<input type='hidden' name='prix' value='{{prix}}'>
+			<input type='hidden' name='ref' value='{{ref}}'>
+			<input type='submit' name='succes' value='SUCCES'>
+		</form>
+
+		<form method='POST' action='?page=confirm_paiement'>
+			<input type='hidden' name='prix' value='{{prix}}'>
+			<input type='hidden' name='ref' value='{{ref}}'>
+			<input type='submit' name='echec' value='ECHEC'>
+		</form>
+
+
+	</body>
+</html>
+
+
+
+
+
+

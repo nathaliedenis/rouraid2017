@@ -1,0 +1,58 @@
+    
+
+
+        <div id="menu">
+
+        	<div class="iconburger">
+				  <div class="bar1"></div>
+				  <div class="bar2"></div>
+				  <div class="bar3"></div>
+			</div>
+
+            <ul>
+
+            	{% if langue == "fr" %}
+
+	                <li><a href="index.php" accesskey="1"><img src="img/icon_home.png" alt="Accueil"/></a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=presentation" accesskey="2">Présentation</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=epreuves" accesskey="3">Epreuves</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=infos_pratiques" accesskey="4">Infos Pratiques</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=commentaire" accesskey="5">Livre d'or</a><div class="trianglebottom"></div></li>
+
+	                {% if maxEquipe %}
+	                	<li><a href="?page=inscription_close" accesskey="6">S'inscrire</a><div class="trianglebottom"></div></li>
+	                {% else %}
+	                	{% if membre.isLogged() %}
+		                	<li><a href="?page=inscription1" accesskey="6">S'inscrire</a><div class="trianglebottom"></div></li>
+		                {% else %}
+		                	<li><a href="?page=connexion_mbr" accesskey="6">S'inscrire</a><div class="trianglebottom"></div></li>
+		                {% endif %}	
+		            {% endif %}	
+		            <li class="pour_burger"><a href="?page=resultats" accesskey="7">Tous les résultats</a></li>
+            		<li class="pour_burger"><a href="?page=equipes" accesskey="8">La liste des équipes</a></li>  
+
+	                
+
+               	{% else %}
+
+               		<li><a href="index.php"  accesskey="1"><img src="img/icon_home.png" alt="Accueil"/></a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=presentation"  accesskey="2">Presentation</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=epreuves" accesskey="3">Events</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=infos_pratiques" accesskey="4">Informations</a><div class="trianglebottom"></div></li>
+	                <li><a href="?page=commentaire" accesskey="5">Testimonials</a><div class="trianglebottom"></div></li>
+	                {% if maxEquipe %}
+	                	<li><a href="?page=inscription_close" accesskey="6">Register</a><div class="trianglebottom"></div></li>
+	                {% else %}
+	                	{% if membre.isLogged() %}
+		                	<li><a href="?page=inscription1" accesskey="6">Register</a><div class="trianglebottom"></div></li>
+		                {% else %}
+		                	<li><a href="?page=connexion_mbr" accesskey="6">Register</a><div class="trianglebottom"></div></li>
+		                {% endif %}	
+		            {% endif %}	 
+		            <li class="pour_burger"><a href="?page=resultats" accesskey="7">Team's listing</a></li>
+            		<li class="pour_burger"><a href="?page=equipes" accesskey="8">Result's raid</a></li>   
+	                
+
+               	{% endif %}	
+            </ul>
+        </div>

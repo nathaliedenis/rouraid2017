@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block page %}<div class="page close">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+
+                <div class="fiche">
+
+                    <h2>Désolé, le rouraid est complet</h2>
+
+                    <h3>Il n'est plus possible de s'inscrire au Rouraid<br/>
+                    Mais vous pouvez nous rejoindre pour le repas. </h3>
+                        <p>Vous avez la possibilité d'acheter vos repas en ligne ou de les acheter sur place le jour du raid</p>
+                    
+                    <div class="pourrepas">
+
+                        {% if membre.isLogged() %}
+
+                            <form method="POST" action="?page=inscription3">
+                            
+                                <input class="petit bouton" type="submit" name="repas" value="COMMANDER UNIQUEMENT LE REPAS"/>
+
+                            </form>
+
+                        {% else %}
+
+                            <form method="POST" action="?page=connexion_mbr">
+
+                                <input type="hidden" name="provenance" value="inscription3"/>
+                            
+                                <input class="petit bouton" type="submit" name="identification" value="COMMANDER UNIQUEMENT LE REPAS"/>
+
+                            </form>
+
+                        {% endif %}
+
+                    </div>
+                
+
+            </div>
+        </section>
+
+        
+
+{% endblock %}

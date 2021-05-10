@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block page %}<div class="page moncompte">{% endblock %}
+
+{% block contenu %}
+   
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+            <div class="agauche">
+
+                <!--commande-->
+                {{ include('partial/_commande.twig') }}
+        
+                <div class="fiche">
+
+                    <h2>MON COMPTE</h2>
+
+                    <div>
+                    	<div class="cpt">
+                    	<ul>
+                    		<li><strong>Nom :</strong> {{membre.isLogged.1}}</li>
+                    		<li><strong>Prénom :</strong> {{membre.isLogged.2}}</li>
+                    		<li><strong>Mail :</strong> {{membre.isLogged.3}}</li>
+                    	</ul>
+                    	</div>
+
+                    	<div class="cpt">
+                        {% for team in teams %} 
+                                <h4>Equipe : {{ loop.index }}</h4>
+                                    <ul>
+                                        <li><strong>Nom de l'équipe : </strong>{{ team.equipe_nom }}</li>
+                                        <li><strong>L'adulte participant : </strong>{{ team.adulte_prenom }} {{ team.adulte_nom }} ({{ team.lien_avec_enfant }})</li>
+                                        <li><strong>L'enfant participant : </strong>{{ team.enfant_prenom }} {{ team.enfant_nom }} ({{ team.enfant_naissance }})</li>
+                                        <li><strong>Catégorie : </strong>{{ team.niveau }} - {{ team.enfant_sexe }}</li>
+                                    </ul>
+                        {% endfor %} 
+                    	</div> 
+
+                    	<div class="cpt">
+						<p><strong>Nombre de repas : </strong>{{ nb_repas }}</p>
+						</div>
+
+						<div class="cpt">
+                            
+                                <h4>Commentaire(s) :</h4>
+                                	{% for commentaire in commentaires %} 
+                                    <ul>
+                                    	<li>le {{commentaire.date_commentaire|date("d/m/Y")}} : {{markdown(commentaire.texte)|nl2br }}</li>
+                                    </ul>
+                                
+                        {% endfor %} 
+                    	</div>
+
+                    </div>    
+
+                </div>
+
+            </div>
+
+        </section>
+
+{% endblock %}

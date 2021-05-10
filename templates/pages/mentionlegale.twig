@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Plan du site{% endblock %}
+
+{% block page %}<div class="page mentionlegale">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+                <div class="texte">
+                    <h2>Mentions légales du site www.rouraid.org</h2>
+                    <h3>Le site web rouraid.org est publié par l’association Rouraid</h3>
+                    <p>Maison des associations - 06650 Le Rouret<br/>
+                    contact : rouraid06@gmail.com</p>
+                    <h3>Le site a été conçu et réalisé par</h3>
+                    <p>Nathalie Denis. Contact : nathalie-denis.com</p>
+                    <h3>Le site est hébergé chez OVH</h3>
+                    <p>SAS au capital de 10 000 000 € RCS Roubaix – Tourcoing 424 761 419 00045<br/>
+                    Code APE 6202A – N° TVA : FR 22 424 761 419<br/>
+                    Siège social : 2 rue Kellermann 59100 Roubaix – France<br/>
+                    Service client : 1007</p>
+                    <h3>Crédits Photos</h3>
+                    <p>Toutes les photos et vidéos présentes sur ce site sont interdites de reproduction.
+                    Les photos d'ambiance proviennent de la photothèque Shutterstock. </p>
+                    <h3>Animations</h3>
+                    <p>animate.css -http://daneden.me/animate<br/>
+                    https://daneden.github.io/animate.css/<br/>
+                    Version - 3.5.1<br/>
+                    Licensed under the MIT license - http://opensource.org/licenses/MIT<br/>
+                    Copyright (c) 2016 Daniel Eden</p>
+                    <h3>Tarif</h3>
+                    <p>Prix pour l'inscription d'une équipe : {{prix.tarif_normal}}€ <br/>
+                    Réduction accordée aux familles inscrivant plusieurs équipes à la fois (réduction par équipe) : {{prix.reduction}}€ <br/>
+                    Prix d'un repas accompagnateur : {{prix.tarif_repas}}€ </p>
+                    <h3>Retrait des inscriptions</h3>
+                    <p>Présentez-vous le jour du rouraid à l'entrée du chemin du camp romain, muni de vos certificats médicaux.
+                    Les dossards vous seront remis à ce moment-là</p>
+                    <h3>Retrait des repas</h3>
+                    <p>Pour retirer vos repas supplémentaires, il suffira de vous présenter le jour du rouraid, à la table distribuant les repas, avec votre mail de validation.</p>
+                    <h3>REGLEMENT</h3>
+                    {% for cat_reglement in cats_reglement %}
+                        <h4>{{ cat_reglement.libelle}}</h4>
+                            <ul>
+                                {% for reglement in reglements %}
+                                    {% if reglement.id_cat_reglement == cat_reglement.id_cat_reglement %}
+                                        <li>{{ markdown(reglement.texte) | nl2br }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </section>
+
+        
+
+{% endblock %}

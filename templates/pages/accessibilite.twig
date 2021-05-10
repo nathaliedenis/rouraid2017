@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% block title %}Accessibilite{% endblock %}
+
+{% block page %}<div class="page accessibilite">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+                <div class='texte'>
+                    <h2>Conformité du site rouraid.org</h2>
+
+                    <p>Le site rouraid.org est accessible et propose de nombreuses fonctionnalités permettant à tous les internautes de naviguer aisément.</p>
+
+                    <h3>Le logo principal</h3>
+
+                    <p>Sur l’ensemble des pages, le logo rouraid affiché dans la bannière permet en un seul clic de retourner sur la page d’accueil du site.</p>
+
+                    <h3>Les menus</h3>
+
+                    <h4>Le menu principal</h4>
+
+                    <p>Le menu principal, situé sous la bannière, vous permet d’accéder aux rubriques et aux pages principales du site. Il s’agit d’un menu contrôlable à la fois à la souris, au clavier et au doigt pour les écrans tactiles.</p>
+
+                    <p>Dans la partie droite du site, un autre menu vous parmettra d'accéder aux pages diffusion des résultats et liste des équipes.
+
+                    <h4>Le menu secondaire</h4>
+
+                    </p>Une fois dans une rubrique principale, un second menu peut apparaître. Ce menu secondaire liste l’ensemble des pages disponibles dans la rubrique courante.
+
+                    <h4>Le menu du pied de page</h4>
+
+                    <p>Le menu du pied de page vous permet d’accéder à des pages complémentaires comme (les mentions légales et le plan du site).</p>
+
+                    <h3>Raccourcis clavier (accesskeys) :</h3>
+                    <ul>
+                        <li><kbd>0</kbd> = Aide et accessibilité</li>
+                        <li><kbd>1</kbd> = Accueil du site</li>
+                        <li><kbd>2</kbd> = Présentation</li>
+                        <li><kbd>3</kbd> = Epreuves</li>
+                        <li><kbd>4</kbd> = Informations pratiques</li>
+                        <li><kbd>5</kbd> = Livre d'Or</li>
+                        <li><kbd>6</kbd> = S'inscrire</li>
+                        <li><kbd>7</kbd> = Les résultats</li>
+                        <li><kbd>8</kbd> = La liste des équipes</li>
+                        <li><kbd>9</kbd> = Plan du site</li>
+                    </ul></br>
+
+                    <h4>Mode d'emploi :</h4>
+
+                    <ul>
+                        <li><span >Mozilla Firefox, Safari, Netscape (Windows) </span>: Appuyez simultanément sur la touche <kbd>Shift</kbd> et <kbd>Alt</kbd>, ainsi que sur une des touches <kbd>accesskey</kbd> du clavier (pas le pavé numérique). Vous vous rendrez directement à l'endroit voulu. <br /><em>Note :</em> sur un clavier de type «QWERTY» ou «QWERTZ» (allemand), la touche <kbd>Shift</kbd> est inutile pour déclencher l'accesskey.
+
+                        </li>
+                        
+                        <li><span >Internet Explorer (Windows) </span>: Appuyez simultanément sur la touche <kbd>Alt</kbd> et sur une des touches <kbd>accesskey</kbd> du clavier (pas le pavé numérique) et ensuite appuyez sur la touche <kbd>Entrée</kbd> pour vous rendre à l'endroit voulu.</li>
+                        
+                        <li><span >Opera (Windows, Mac et Linux) </span>: <kbd>Esc</kbd> + <kbd>Shift</kbd> et <kbd>accesskey</kbd></li>
+                        
+                        <li><span >Safari (Mac OS X) </span>: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> et <kbd>accesskey</kbd> (touches du pavé numérique)</li>
+                        <li><span >Internet Explorer (Mac OS X) </span>: <kbd>Ctrl</kbd> et <kbd>accesskey</kbd></li>
+                        
+                        <li><span >Mozilla, Netscape (Mac OS X) </span>: <kbd>Ctrl</kbd> et <kbd>accesskey</kbd> et ensuite appuyez sur la touche <kbd>Entrée</kbd> pour vous rendre à l'endroit voulu.</li>
+                        
+                        <li><span >Mozilla Firefox, Galeon (Linux) </span>: <kbd>Alt</kbd> et <kbd>accesskey</kbd></li>
+                        
+                        <li><span >Konqueror (Linux) </span>: <kbd>Ctrl</kbd>, puis <kbd>accesskey</kbd> (successivement)</li>
+                        
+                        <li>Les navigateurs plus anciens (Netscape 4, Camino, Galeon, Konqueror avant la version 3.3.0, Omniweb, Safari avant la version 1.2, Opera Windows/Linux avant la version 7) ne supportent pas les accesskeys.</li>
+
+                    </ul>
+
+
+                    <h3>Le plan du site</h3>
+
+                    <p>Sur l’ensemble des pages du site, un plan du site est accessible par l’intermédiaire d’un lien dans le menu du pied de page.<br/>
+                    Ce plan du site vous permet d’avoir une vision d’ensemble de l’arborescence du site et d’accéder directement à la page ou la rubrique de votre choix.</p>
+
+
+                    <h3>Agrandissement de la taille des caractères</h3>
+
+                    <p>En parallèle des aides à disposition directement sur le site, celui-ci a été conçu de manière à donner la possibilité à votre navigateur de tirer pleinement partie de ses propres fonctionnalités.<br/>
+
+                    Sur la totalité des pages du site, vous avez la possibilité d’agrandir la taille des caractères.<br/>
+                    Si vous êtes sur PC, utilisez la combinaison de touches Ctrl + + pour agrandir la taille des caractères. La combinaison de touches Ctrl + - permet quant à elle de réduire la taille des caractères.<br/>
+                    Des appuis successifs sur ces touches vous permettent d’augmenter ou de diminuer la taille des caractères par paliers.<br/>
+                    Notez également que la combinaison de touches Ctrl + 0 (le chiffre « zéro ») vous permet de revenir à la taille du texte par défaut.<br/>
+                    Utilisateurs de Mac, il vous suffit de remplacer dans les combinaisons annoncées ci-dessus la touche Ctrl par la touche Cmd pour effectuer les mêmes actions.</p>
+
+                    <h3>Raccourcis navigateurs (touche Pomme sous mac OS X à la place de Ctrl):</h3>
+
+                    <ul>
+                        <li><kbd>Ctrl</kbd> + <kbd>N</kbd> = Ouvrir une nouvelle fenêtre</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>T</kbd> = Ouvrir un nouvel onglet</li>
+
+                        <li><kbd>F5</kbd> = Recharger la page</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>F5</kbd> = Recharger la page (forcer le cache)</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>W</kbd> = Fermer l'onglet ou la page en cours (Mozilla  uniquement)</li>
+
+                        <li><kbd>Ctrl</kbd> + <kbd>F</kbd> = Rechercher dans la page</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>P</kbd> = Imprimer la page</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>A</kbd> = Sélectionner tout</li>
+
+                        <li><kbd>Ctrl</kbd> + <kbd>C</kbd> = Copier dans le presse papier</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>V</kbd> = Coller à partir du presse papier</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>D</kbd> = Mise en favori</li>
+
+                        <li><kbd>F11</kbd> = Plein écran</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>U</kbd> = Afficher le code source de la page (Mozilla  uniquement)</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>F3</kbd> = Afficher le code source de la page (Internet  Explorer et Opera uniquement)</li>
+                    </ul>
+
+
+                    <h3>Documents PDF</h3>
+
+                    <p>Ce site propose des documents PDF en téléchargement.<br/>
+
+                    Visualiser ce type de documents nécessite le logiciel Adobe Reader qui peut être téléchargé gratuitement à cette adresse : http://get.adobe.com/fr/reader/.</p>
+
+                    <h3>Vidéos</h3>
+
+                    <p>Ce site propose une vidéo. La bande sonore de cette video n'est qu'une mélodie musicale donnant un esprit dynamique et amusant à la vidéo.</p>
+
+                    <h3>Des contenus clairs et des repères constants :</h3> 
+                    <p>L'ergonomie des pages est très  importante. Des  contenus clairs, lisibles et structurés sont les points clés dans  l'équilibre graphique d'une page Web.<br/>
+
+                    Un bandeau supérieur constitué du logo du Roraidredirigeant sur la page d'accueil du site Internet.<br/>
+                                                                    
+                    Le menu principal est situé sous ce bandeau.</p>
+
+                    <h3>Des liens et images commentés :</h3> 
+
+                    <p>Chaque lien est décrit textuellement, soit par son contenu textuel soit, si ce lien est constitué d'une image, grâce à la balise title qui fait appraitre la description du lien au survol . Tous les boutons sur le site ont un contenu textuel simple et explicite.<br/>
+                    Chaque image est dotée d'une alternative textuel.<br/>
+                    Un titre différent est donné pour chaque page du site, un repère supplémentaire si vous souhaitez enregistrer en local une page du site internet ou l’enregistrer dans les favoris.</p>
+
+
+                    <h3>Engagement</h3>
+
+                    <p>Nous nous engageons à mettre ce site à la disposition de tous les internautes, indépendamment de leurs dispositions physiques et/ou cognitives.<br/>
+
+                    Si toutefois vous veniez à rencontrer un problème lors de la navigation ou lors de l’accès à certains contenus sur le site, n’hésitez pas à nous contacter en détaillant au maximum votre situation et le problème rencontré afin que nous trouvions ensemble une solution.<br/>
+
+                    Pour nous contacter, accédez simplement au <a href="?page=infos_pratiques"> formulaire de contact</a> et renseignez le formulaire.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+{% endblock %}

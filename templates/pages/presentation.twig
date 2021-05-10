@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}Presentation{% endblock %}
+
+{% block page %}<div class="page presentation">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+
+                <div class="sousmenu">
+                    <ul>
+                        <li data-lien="histoire"><a>Le raid</a></li>
+                        <li data-lien="programme"><a>Au programme</a></li>
+                        <li data-lien="galerie"><a>La galerie photos</a></li>
+                    </ul>
+                </div>
+
+                <div id="histoire" class="texte souspage actif">
+                {% for presentation in presentations %}
+                	
+                	<h2 class="bounceInLeft animated">{{presentation.titre}}</h2>
+                    <p>{{markdown(presentation.texte) | nl2br | raw}}</p>
+
+                {% endfor %}
+                </div>
+
+
+                   
+
+
+                <div id="programme" class="texte souspage">
+
+                    <div>
+                        <h2 class="bounceInLeft animated">Le programme de la journée</h2>
+                        <table>
+                            {% for programme in programmes %}
+                                <tr>
+                                    <td>{{ programme.heure_debut }}</td> 
+                                    <td><h3>{{ programme.etape_titre }}</h3></td>
+                                </tr>
+                                <tr>
+                                    <td></td> 
+                                    <td>{{ markdown(programme.texte_etape) | nl2br}}</td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <div id="galerie" class="texte souspage">
+                    <h2 class="bounceInLeft animated">La galerie photos</h2>
+
+                    <div class="annee">
+                        <ul>
+                            {% for annee_photo in annees_photo %}
+                            {% if loop.index == 1 %}
+                                <li class="actif rubberBand animated" data-lien="{{annee_photo.annee_raid}}"><a>{{annee_photo.annee_raid}}</a></li>
+                            {% else %}
+                                <li data-lien="{{annee_photo.annee_raid}}"><a>{{annee_photo.annee_raid}}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                            <li data-lien="video"><a>VIDEO</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="album">
+                    <div id="zoom">
+                        <p>x</p>
+                        <img src="-" alt="Rouraid"/>
+                    </div>
+                    <ul>
+                    {% for annee_photo in annees_photo %}
+                        <li class="{{annee_photo.annee_raid}}">
+                        <ul class='mini'>
+                        {% for photo in photos %}
+                        {% if photo.annee_raid == annee_photo.annee_raid %}
+                            <li><img src="img/photo_rouraid/{{photo.url}}" alt="{{photo.alt}}"/></li>
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+                    </li> 
+                    {% endfor %}
+                    <li class="video">
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/MeBihVbnF5Q?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                    </li>
+                    </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+
+{% endblock %}

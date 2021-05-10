@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block page %}<div class="page inscription">{% endblock %}
+
+{% block contenu %}
+   
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+            <div class="agauche">
+
+                <!--commande-->
+                {{ include('partial/_commande.twig') }}
+
+                <div class="fiche">
+        
+
+                    <h2>Voulez-vous inscrire une autre équipe ?</h2>
+
+                    <p class="erreur"> </p>
+                    
+                    <div class="demi">
+                        <form method="POST" action="?page=inscription1">
+                            <input class="bouton" type="submit" name="equipSup" value="OUI">
+                        </form>
+
+                        <form method="POST" action="?page=inscription3">
+                            <input class="bouton" type="submit" name="valider" value="NON">
+                        </form>
+
+                    </div>
+
+                </div>
+        
+            </div>
+          
+        </section>
+
+{% endblock %}

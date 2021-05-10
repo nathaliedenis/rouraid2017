@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block page %}<div class="page accueil">{% endblock %}
+
+{% block contenu %}
+
+        <header class="slide">
+    		<img src="img/slide1.jpg" alt=""/>
+
+            {% for info in infos %}
+            <div class="bloc bounceInLeft animated ter">
+            <h1>{{ info['texte_informatif'] | nl2br}}</h1>
+            </div>
+            {% endfor %}
+
+
+    	</header>
+
+        <section>
+
+        	<div class="trio"> 
+                <div>
+
+                    {% if langue == "fr" %}
+
+                        <div class="bounceIn animated">
+                            {% if membre.isLogged() %}
+                                <a href="?page=inscription1"><h2>Inscrire une équipe</h2></a>
+                            {% else %}
+                                <a href="?page=connexion_mbr"><h2>Inscrire une équipe</h2></a>
+                            {% endif %}
+                        </div>
+
+                        <div class="bounceIn animated bis">
+                            <a href="?page=resultats"><h2>Tous les résultats</h2></a>
+                        </div>
+
+                        <div class="bounceIn animated ter">
+                            <a href="?page=equipes"><h2>La liste des équipes</h2></a>
+                        </div>
+
+                    {% else %}
+
+                        <div>
+                            {% if membre.isLogged() %}
+                                <a href="?page=inscription1"><h2>Register a team</h2></a>
+                            {% else %}
+                                <a href="?page=connexion_mbr"><h2>Register a team</h2></a>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <a href="?page=resultats"><h2>Result's raid</h2></a>
+                        </div>
+
+                        <div>
+                            <a href="?page=equipes"><h2>Team's listing</h2></a>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+
+
+
+            <div class="moodboard">
+
+                <div>
+
+                    <div class="un">
+                        <div class="photoun">
+                            <div></div>
+                        </div>
+                        <div class="color"></div>
+                    </div>
+
+                    <div class="deux">
+                        <iframe src="https://www.youtube.com/embed/MeBihVbnF5Q?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="trois">
+                        <div class="lienphoto">
+
+                                <a href="?page=presentation#galerie" title="Voir toutes les photos"></a>
+
+                        </div>
+                    {% if langue == "fr" %}
+                        <div class="color"><a href="?page=presentation#galerie"><h2>La galerie photos</h2></a></div>
+                        </div>
+                    {% else %}
+                        <div class="color"><a href="?page=presentation#galerie"><h2>Photo gallery</h2></a></div>
+                        </div>
+                    {% endif %}
+
+
+                    <div class="unbis">
+                        <div class="photoun">
+                            <div></div>
+                        </div>
+                    </div>
+
+
+                    <div class="quatre">
+                        <div class="photodeux">
+                            <div></div>
+                        </div>
+                    </div>
+
+                    {% if langue == "fr" %}
+                        <div class="cinq">
+                        <a href="?page=commentaire" title="Voir le livre d'or"><h2>Le livre d'or</h2></a>
+                        </div>
+                    {% else %}
+                        <div class="cinq">
+                        <a href="?page=commentaire" title="Testimonial"><h2>Testimonials</h2></a>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+{% endblock %}

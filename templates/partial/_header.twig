@@ -1,0 +1,42 @@
+
+
+    <div id="entete">
+
+        <!--langue-->
+        <div id="langue">
+            <a href="index.php?langue=fr">| FR </a>
+            <a href="index.php?langue=en">| EN |</a>
+        </div>
+
+
+    		<h1><a href="index.php"><img src="img/logo_rouraid.png" alt="Le Rouraid, le raid des familles"/></a></h1>
+
+            {% if langue == "fr" %}
+                <h3>Le Rouret<br/><span>{{ ladate.dateFrancais }}</span></h3>
+            {% else %}
+                <h3>Le Rouret<br/><span>{{ ladate.date_raid | date('l F jS Y') }}</span></h3> 
+            {% endif %}
+
+            {% if membre.isLogged() %}
+                <a href="?page=moncompte" title="voir mon compte"><img src="img/icon_compte.png" alt="mon compte"/></a>
+                {% if langue == "fr" %}
+                <form method="POST" action="?page=connexion_mbr"><button class="mbr" type="submit" name="deconnect">Se déconnecter</button></form>
+                {% else %}
+                <form method="POST" action="?page=connexion_mbr"><button class="mbr" type="submit" name="deconnect">Logout</button></form> 
+                {% endif %}    
+
+            {% else %}
+
+                {% if langue == "fr" %}
+                <form method="POST" action="?page=connexion_mbr"><button class="mbr">S'identifier</button>
+                <input type="hidden" name="provenance" value=""/>
+                </form>
+                {% else %}
+                <form method="POST" action="?page=connexion_mbr"><button class="mbr">Login</button>
+                <input type="hidden" name="provenance" value=""/>
+                </form>
+                {% endif %}
+
+            {% endif %}
+
+    </div>    

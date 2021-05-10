@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}Livre d'or{% endblock %}
+
+{% block page %}<div class="page commentaire">{% endblock %}
+
+{% block contenu %}
+
+        <!--aside-->
+        {{ include('partial/_aside.twig') }}
+    
+        <section class="content">
+
+            <div class="agauche">
+
+                <div class="texte">
+
+                    <h2>Ce qu'ils disent de nous ...</h2>
+
+                    {% for commentaire in commentaires %}
+
+                        <div class="testimonial bounceIn animated">
+                            <div class="bulle">
+                                <p>{{markdown(commentaire.texte) }}</p>
+                            </div>
+                            <div class="flechebulle"></div>
+
+                            {% for user in users %}
+                                {% if commentaire.id_membre == user.id_membre %}
+                                    <p class="legende">{{markdown(user.prenom)}}
+                                {% endif %}
+                            {% endfor %}
+
+                            <br/><span>le {{commentaire.date_commentaire|date("d/m/Y")}}</span></p>  
+                           
+                        </div>
+
+                    {% endfor %}               
+                            
+                </div>
+
+                <div id="avis" class="avis">
+                    
+                    {% if membre.isLogged() %}
+
+                        <div class="fiche">
+
+                            <h2>Votre avis nous interresse ...</h2>
+                            <div>
+                            <form method="POST" action="?page=commentaire">
+
+                                <div>
+                                <label for="commentaire"></label>
+
+                                    <textarea id="commentaire" name="commentaire" placeholder="Déposez ici votre commentaire, merci ...">{{save_commentaires}}</textarea>                   
+                                                   
+                                </div>
+                                <div>
+                                    <input type="hidden" name="id_membre" value="{{membre.isLogged.0}}"/>
+                                    <input class="bouton" type="submit" name="envoicommentaire" value="ENVOYER MON COMMENTAIRE"/>
+                                </div>
+                            
+                            </form>
+                        </div>
+                        </div>
+
+                    {% else %}
+                        <h2>Votre avis nous interresse ...</h2>
+
+                        <h3>Pour déposer votre commentaire, merci de vous identifier </h3>
+
+                        <form method="POST" action="?page=connexion_mbr">
+
+                            <input type="hidden" name="provenance" value="commentaire#avis"/>
+                            
+                            <input class="petit bouton" type="submit" name="identification" value="S'IDENTIFIER"/>
+
+                        </form>
+
+                    {% endif %}           
+                        
+                </div>
+
+            </div>
+            
+        </section>
+
+
+{% endblock %}

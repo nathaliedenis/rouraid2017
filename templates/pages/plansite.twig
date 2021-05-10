@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}Plan du site{% endblock %}
+
+{% block page %}<div class="page plansite">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+                <div class='texte'>
+                    <h2>Plan du Site</h2>
+                    <ul>
+                        <li>Accueil
+                            <ul>
+                                <li>Presentation
+                                    <ul>
+                                        <li>Le raid</li>
+                                        <li>Au programme</li>
+                                        <li>Galerie photos</li>
+                                    </ul>
+                                </li>
+                                <li>Epreuves
+                                    <ul>
+                                        <li>Le cross</li>
+                                        <li>La mini course d'orientation</li>
+                                        <li>Le parcours accrobatique</li>
+                                        <li>Le tir à la carabine</li>
+                                        <li>Le quizz</li>
+                                        <li>Le biathlon vtt</li>
+                                    </ul>
+                                </li>   
+                                <li>Informations pratiques
+                                    <ul>
+                                        <li>Formulaire de contact</li>
+                                        <li>Le plan d'accès</li>
+                                        <li>Le règlement</li>
+                                    </ul>   
+                                </li>
+                                <li>Le livre d'or</li>
+                                <li>S'inscrire
+                                    <ul>
+                                        <li>Inscription d'une equipe</li>
+                                        <li>Inscription au repas</li>
+                                        <li>Récapitulatif</li>
+                                        <li>Paiement</li>
+                                        <li>Confirmation</li>
+                                    </ul>
+                                </li>
+                                <li>Tous les résultats</li> 
+                                <li>La liste des équipes</li>
+                                <li>Mentions légales</li>
+                                <li>Accéssibilité</li>
+                                <li>Plan du site</li>
+                                <li>Mon compte</li>        
+                            </ul>
+                        </li>
+                    </ul>
+               </div> 
+            </div>
+        </section>
+
+        
+
+{% endblock %}

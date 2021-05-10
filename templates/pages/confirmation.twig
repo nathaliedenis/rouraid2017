@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}Confirmation{% endblock %}
+
+{% block page %}<div class="page confirmation">{% endblock %}
+
+{% block contenu %}
+   
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+
+                <h2>CONFIRMATION D'INSCRIPTION</h2>
+            
+                <p>Votre paiement a été validé et votre inscription a été prise en compte.<br/>
+                Rendez-vous le 14 mai 2017.<br/>
+                Vous allez recevoir un mail récapitulatif.</p>
+
+                <h1>ATTENTION : INSCRIPTION NON VALIDEE</h1>
+
+                <p>Le paiement n'a pas été validé.<br/>
+                    Votre inscription n'est pas prise en compte.<br/>
+                    Veuillez recommencer</p>
+
+                <a href="index.php">RETOUR AU SITE></a>
+                
+            </div>
+
+        </section>
+
+{% endblock %}

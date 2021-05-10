@@ -1,0 +1,62 @@
+
+
+      <div id="partenaire">
+          <div>
+              {% if langue == "fr" %}
+                  <h2>Nos partenaires</h2>
+              {% else %}
+                  <h2>Sponsors</h2>
+              {% endif %}
+
+              {% for sponsor in sponsors %}
+
+                  <img src="img/sponsor/{{sponsor['url']}}" alt="{{sponsor['nom']}}"/>
+                  
+              {% endfor %}
+             
+          </div>
+      </div>
+
+      <div id="enpied">
+            <div>
+
+                {% for info in infos %}
+                <div>
+                    <address>{{info.adresse | nl2br }}</address>
+                </div>
+                {% endfor %}
+
+                <div>
+                    {% if langue == "fr" %}
+                        <ul>
+                            <li><a href="?page=mentionlegale">Mentions légales</a></li>
+                            <li><a href="?page=accessibilite" accesskey="0">Accéssibilité</a></li>
+                            <li><a href="?page=plansite" accesskey="9">Plan du site</a></li>
+                            <li><a href="backoff/login.php">Backoffice</a></li>
+                            {% if membre.isLogged() %}
+                            <li><a href="?page=moncompte">Mon compte</a></li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <ul>
+                            <li><a href="?page=mentionlegale">Legal Notices</a></li>
+                            <li><a href="?page=accessibilite" accesskey="0">Accessibility</a></li>
+                            <li><a href="?page=plansite" accesskey="9">Site Map</a></li>
+                            <li><a href="backoff/login.php">Backoffice</a></li>
+                            {% if membre.isLogged() %}
+                            <li><a href="?page=moncompte">My count</a></li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <div><a href="https://www.facebook.com/rouraid" title="aller sur la page facebook de l'association le rouraid"><img src="img/icon_facebook.png" alt="logo facebook"/></a></div>
+                    <div class="fb-like" data-href="https://fr-fr.facebook.com/rouraid" data-width="100" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+                </div>
+
+          </div>
+      </div>
+
+
+      

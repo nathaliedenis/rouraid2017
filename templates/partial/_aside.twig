@@ -1,0 +1,56 @@
+
+
+    <aside>
+
+        {% for info in infos %}
+
+            <div>
+                <p>{{ info['texte_informatif'] | nl2br}}</p>
+            </div>
+
+        {% endfor %}
+
+        {% if langue == "fr" %}
+
+            <div>
+                <div class="triangle"></div>
+                <a href="?page=resultats" accesskey="7">Tous les résultats</a>
+            </div>
+            <div>
+                <div class="triangle"></div>
+                <a href="?page=equipes" accesskey="8">La liste des équipes</a>
+            </div>
+
+
+        {% else %}
+
+            <div>
+                <div class="triangle"></div>
+                <a href="?page=resultats">Result's raid</a>
+            </div>
+            <div>
+                <div class="triangle"></div>
+                <a href="?page=equipes">Team's listing</a>
+            </div> 
+
+        {% endif %}
+        
+ 
+        <div class="photoun">
+            <div></div>
+        </div>
+        
+
+        <div class="photodeux">
+            <div></div>
+        </div>
+
+        
+    </aside>
+
+
+            
+
+
+
+

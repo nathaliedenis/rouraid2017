@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Equipes{% endblock %}
+
+{% block page %}<div class="page equipes">{% endblock %}
+
+{% block contenu %}
+            
+      <!--aside-->
+        {{ include('partial/_aside.twig') }}
+
+        <section class="content">
+
+            <div class="agauche">
+
+            <div class="texte">
+
+            <h2 class="bounceInLeft animated">Les équipes inscrites au Rouraid {{ ladate.date_raid | date('Y') }}</h2>
+        
+            <table>
+
+                <tr>
+                    <th></th>
+                    <th>Nom de l'équipe<a href="?page=equipes&tri=equipe_nom">v</a></th>
+                    <th>Catégorie<a href="?page=equipes&tri=niveau">v</a></th>
+                    <th>Enfant<a href="?page=equipes&tri=enfant_nom">v</a></th>
+                    <th>Adulte<a href="?page=equipes&tri=adulte_nom">v</a></th>
+                </tr>
+
+                {% for equipe in equipes %}
+                <tr {% if equipe.niveau == "Pitchoun" %} class="pitchoun" {% endif %}
+                    {% if equipe.niveau == "Poussin" %} class="poussin" {% endif %}
+                    {% if equipe.niveau == "Benjamin" %} class="benjamin" {% endif %}
+                    {% if equipe.niveau == "College" %} class="college" {% endif %}>
+                    <th>{{ loop.index }}</th>
+                    <td>{{ equipe.equipe_nom }}</td>
+                    <td>{{ equipe.niveau }}</td>
+                    <td>{{ equipe.enfant_prenom }}</td>
+                    <td>{{ equipe.adulte_prenom }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+            
+        </section>
+
+
+{% endblock %}

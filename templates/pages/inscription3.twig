@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block page %}<div class="page inscription repas">{% endblock %}
+
+{% block contenu %}
+   
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+            <div class="agauche">
+
+                <!--commande-->
+                {{ include('partial/_commande.twig') }}
+
+                <div class="fiche">
+        
+
+                    <h2>Commander des repas supplémentaires</h2>
+
+                    <div>
+                        <h3>Tarif par repas : {{ prix.tarif_repas }} €</h3>
+                        <p><span>RAPPEL : Les repas des 2 participants sont compris dans l'inscription au Rouraid.</span><br/>Vous pouvez commander des repas pour les personnes qui vous accompagnent.</p>
+
+                        <p class="erreur"> </p>
+                        
+                        <div>
+                           
+                            {% if session.register %}
+
+                            <form method="POST" action="?page=recapitulatif">
+                                <div class="errorjs radio">.</div>
+                                <input type="radio" id="repas_sup" name="checkrepas" value="oui">
+                                <label for="repas_sup"><span>OUI, je veux commander<br/>des repas supplémentaires</span></label>
+                                
+                                <label class="cache" for="nb_repas">quantité :</label>
+                                <input class="cache nb_repas" type="number" min="1" max="99" id="nb_repas" name="nb_repas" value=""><div class="errorjs nbrepas">.</div><br/>
+                                
+                                <input type="radio" id="pas_repas" name="checkrepas" value="non">
+                                <label for="pas_repas"><span>NON, merci</span></label><br/>
+                                <input class="bouton" type="submit" name="repas" value="CONTINUER">    
+                            </form>
+                            {% else %}
+
+                            <form method="POST" action="?page=recapitulatif">
+                                <label for="nb_repas">Nombre de repas :</label>
+                                <input class="nb_repas" type="number" min="1" max="99" id="nb_repas" name="nb_repas" value=""><div class="errorjs nbrepas">.</div><br/>
+                                <input class="bouton" type="submit" name="repas_seul" value="CONTINUER">
+                            </form>
+                            {% endif %}
+
+                               
+
+
+                            <form method="POST" action="index.php">
+                                <input class="bouton" type="submit" name="annulerinscription" value="ANNULER"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </section>
+
+{% endblock %}

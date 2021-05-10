@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}Epreuves{% endblock %}
+
+{% block page %}<div class="page epreuves">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }}
+
+        <section class="content">
+
+            <div class="agauche">
+
+                <div class="menuepreuve">
+                    <ul>
+                        {% for epreuve in epreuves %}
+                        {% if epreuve.index_contenu == 1 %}
+                            <li data-lien="{{epreuve.index_contenu}}" class="ok rubberBand animated"><a title="{{epreuve.titre}}"></a></li>
+                        {% else %}
+                            <li data-lien="{{epreuve.index_contenu}}"><a title="{{epreuve.titre}}"></a></li>
+                        {% endif %}   
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                
+                    {% for epreuve in epreuves %}
+                        {% if epreuve.index_contenu == 1 %}
+                            <div id="{{epreuve.index_contenu}}" class="texte souspage actif">
+                        {% else %}
+                            <div id="{{epreuve.index_contenu}}" class="texte souspage">
+                        {% endif %}
+                            <h2 class="bounceInRight animated" >{{epreuve.titre}}</h2>
+                            <p class="bounceInRight animated bis">{{markdown(epreuve.texte) | nl2br}}</p>
+                            {% if epreuve.titre ends with "cross" or epreuve.titre ends with "vtt" %}
+                                <p class="bounceInRight animated bis"><em>* Pitchouns : nés en {{ annee[0] }}<br/>
+                                * Poussins : nés entre {{ annee[1] }} et {{ annee[2] }}<br/>
+                                * Benjamins : nés entre {{ annee[3] }} et {{ annee[4] }}<br/>
+                                * Collèges : nés entre {{ annee[5] }} et {{ annee[6] }}</em></p>
+                            {% endif %}
+                            <img class="photoepreuve" src="img/epreuve1.jpg" alt="{{epreuve.titre}}">
+                        </div>
+                    {% endfor %}
+
+                
+            </div>
+                
+        </section>
+
+
+{% endblock %}

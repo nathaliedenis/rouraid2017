@@ -1,0 +1,82 @@
+@mixin blocAside($couleur, $hauteur){
+	@if type-of($couleur) != color {$couleur: black;} // Couleur de sustitution
+	height:$hauteur;
+	background:$couleur;
+}
+
+@mixin imageFond($url){
+	background-color:$vertclair;
+	background-image:$url;
+	background-position: center;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+@mixin icone($url, $size, $position){
+	background-image: $url;
+	background-repeat: no-repeat;
+	background-size:$size;
+	background-position:$position;
+}
+
+
+//icone epreuves//
+@mixin iconeRond($url, $url2){
+	background-image: $url;
+	background-repeat: no-repeat;
+	background-size:80%;
+	background-position:center;
+	&.ok{
+		background:$bleu;
+		background-image: $url2;
+		background-repeat: no-repeat;
+		background-size:80%;
+		background-position:center;
+	}
+}
+
+@mixin colonne($pourcent, $couleur){
+	@if type-of($couleur) != color {$couleur: red;} // Couleur de sustitution
+	display:table-cell;
+	vertical-align:top;
+	width:$pourcent;
+	background:$couleur;
+}
+
+@mixin prefix($propriete, $valeur) {
+  -webkit-#{$propriete}: #{$valeur};
+  -ms-#{$propriete}: #{$valeur};
+  -moz-#{$propriete}: #{$valeur};
+  -o-#{$propriete}: #{$valeur};
+  #{$propriete}: #{$valeur};
+}
+
+
+@mixin mon_menu($la_liste){
+	$valeur:1;
+	@each $cle in $la_liste {
+		.#{$cle} nav li:nth-child(#{$valeur}) a{
+			background:$vert;
+		}
+		.#{$cle} nav li:nth-child(#{$valeur}) .trianglebottom{
+			visibility:visible;
+			border-color: $vert transparent transparent transparent;
+			$valeur:$valeur+1;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

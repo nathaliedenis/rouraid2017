@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Confirmation{% endblock %}
+
+{% block page %}<div class="page confirm_paiement">{% endblock %}
+
+{% block contenu %}
+    
+        <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+            
+            <div class="agauche">
+
+                {% if succes %}
+
+                <div class="fiche">
+                	<h2>Le paiement de votre commande à été validé</h2>
+                    <div>
+                    	<table><tr><th>Montant de la commande :</th><td>{{prix}} €</td></tr>
+    						<tr><th>Référence de la commande :</th><td>{{ref}}</td></tr>
+    					</table>
+
+                    	<h3>Rendez-vous le {{ ladate.dateFrancais }}</h3>
+                        <div>
+                            <h4>A NOTER :</h4>
+                        	<ul><li><strong>Retirer les dossards</strong> :<br/> le jour du rouraid, à l'entrée du chemin du camp romain, <strong>muni de vos certificats médicaux.</strong> </li>
+        					<li><strong>Retirer les repas supplémentaires</strong> :<br/> le jour du rouraid, à la table distribuant les repas, avec votre mail réservation.</p></li></ul>
+                        </div>
+                        <a class="bouton" href="index.php">Retour au site</a>
+                    </div>
+                </div>
+					{% endif %}
+
+					{% if echec %}
+                        <div class="texte">
+						<h2>Echec de paiement</h2>
+						<h3>Votre inscription n'est pas validée<br/>veuillez recommencer</h3>
+                        </div>
+					{% endif %}
+                    
+                
+            </div>
+        </section>
+
+        
+
+{% endblock %}

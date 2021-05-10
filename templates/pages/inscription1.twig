@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block page %}<div class="page inscription">{% endblock %}
+
+{% block contenu %}
+   
+		<!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+        	<div class="agauche">
+
+	            <!--commande-->
+	            {{ include('partial/_commande.twig') }}
+
+		        <div class="pourrepas">
+		            <a class="bouton" href="?page=inscription3">COMMANDER UNIQUEMENT LE REPAS</a><br/>
+		            <p>OU</p>
+		        </div>
+
+	            <div class="fiche">
+
+		            <h2>Inscrire une équipe</h2>
+		            <div>
+		            <h3>Tarif par équipe : {{ prix.tarif_normal }} €</h3>
+		            <div class="erreur"><p>{{ newequipes }}</p></div>
+		                
+		                <div>
+		                    <form class="form_inscription" method="POST" action="?page=inscription1">
+
+		                        <fieldset>
+		                            <label for="equipe_nom">Nom d'équipe :</label>
+		                            <input class="verifequipe" type="text" id="equipe_nom" name="equipe_nom"><div class="errorjs">.</div>
+		                        </fieldset>
+
+		                        <fieldset>
+		                        <legend>L'adulte participant</legend><br/>
+		                            <label for="adulte_nom">Nom :</label>
+		                            <input class="verif" type="text" id="adulte_nom" name="adulte_nom"><div class="errorjs">.</div><br/>
+
+		                            <label for="adulte_prenom">Prénom :</label>
+		                            <input class="verif" type="text" id="adulte_prenom" name="adulte_prenom"><div class="errorjs">.</div><br/>
+
+		                            <label for="lien_avec_enfant">Lien avec l'enfant :</label>
+		                            <select id="lien_avec_enfant" name="lien_avec_enfant" >
+		                            	<option value="">Lien</option>
+		                                <option value="Père">Père</option>
+		                                <option value="Mère">Mère</option>
+		                                <option value="Grand-parent" >Grand-parent</option>
+		                                <option value="Oncle/tante">Oncle/tante</option>
+		                                <option value="Frère/soeur">Frère/soeur</option>
+		                                <option value="Ami">Ami</option>
+		                                <option value="Autre">Autre</option>
+		                            </select><div class="errorjs select">.</div>
+		                        </fieldset>
+
+		                        <fieldset>
+		                        <legend>L'enfant participant</legend><br/>
+		                            <label for="enfant_nom">Nom :</label>
+		                            <input class="verif" type="text" id="enfant_nom" name="enfant_nom"><div class="errorjs">.</div><br/>
+
+		                            <label for="enfant_prenom">Prénom :</label>
+		                            <input class="verif" type="text" id="enfant_prenom" name="enfant_prenom"><div class="errorjs">.</div><br/>
+
+		                            <label for="garcon">Garçon</label>
+		                            <input type="radio" id="garcon" name="enfant_sexe" value="Garçon"><br/>
+		                            <label for="fille">Fille</label>
+		                            <input type="radio" id="fille" name="enfant_sexe" value="Fille"><div class="errorjs radio">.</div><br/>
+
+
+		                            <label for="enfant_naissance">Année de naissance :</label>
+		                            <select id="enfant_naissance" name="enfant_naissance">
+		                            	<option value="">Année de naissance</option>
+		                                <option class="College">{{ladate.annee-13}}</option>
+		                                <option class="College">{{ladate.annee-12}}</option>
+		                                <option class="Benjamin">{{ladate.annee-11}}</option>
+		                                <option class="Benjamin">{{ladate.annee-10}}</option>
+		                                <option class="Poussin">{{ladate.annee-9}}</option>
+		                                <option class="Poussin">{{ladate.annee-8}}</option>
+		                                <option class="Pitchoun">{{ladate.annee-7}}</option>
+		                            </select><div class="errorjs select">.</div>
+
+		                        </fieldset>
+
+		                        <input type="hidden" name="id_membre" value="{{membre.isLogged.0}}"/>
+		                        <input type="hidden" id="niveau" name="niveau" value="le niveau attendu"/>
+		                        <input class="bouton" type="submit" id="info_equipe" name="info_equipe" value="VALIDER">
+
+		                    </form>
+		                </div>            
+		            </div>
+		        </div>
+	        </div>
+          
+        </section>
+
+{% endblock %}

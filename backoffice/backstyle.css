@@ -1,0 +1,305 @@
+@import url(../css/reset.css);
+
+
+		body{
+		background-color: #E8E9ED;
+		font-family: Tahoma, sans-serif;
+		font-size:0.9em;
+		margin:120px 20px;
+		text-align: center;
+		}
+		p, td, tr, th, a, textarea, input, label{
+			font-family: Tahoma, sans-serif;
+		}
+
+		.back{
+			margin:auto;
+		}
+
+		.back>form{
+			padding:1em;
+		}
+
+		p.erreur{
+			color:#E24D26;
+			line-height: 4em;
+		}
+		
+		input[value="DECONNEXION"],
+		input[value="RETOUR MENU"]{
+			width: 10em;
+			text-align: center;
+			padding: .25em 0;
+
+			font-size: 0.9em;
+			
+			background-color: grey;
+			border: 0.5em solid grey;
+			color:#FFF;
+			position: fixed;
+			top:20px;
+			right:20px;
+		}
+		input[value="DECONNEXION"]:hover{
+			border: 0.5em solid #FFF;
+		}
+
+		input[value="RETOUR MENU"]{
+			background-color: #FFF;
+			color:grey;
+			border-color:#FFF;
+			top:60px;
+		}
+		input[value="RETOUR MENU"]:hover{
+			border: 0.5em solid grey;
+		}
+		input[value="ANNULER"]{
+			width:10em;
+			text-align: center;
+			padding: .25em 1em;
+			font-size: 0.9em;
+			background-color: grey;
+			border: 0.5em solid grey;
+			color:#FFF;
+		}
+		input[value="ANNULER"]:hover{
+			border-color: #FFF;
+		}
+
+
+		/*page login*/
+
+
+		.login{
+			border:1px solid #456ac7;
+			width:19em;
+		}
+		
+		.login label{
+			line-height: 2;
+			color:#456ac7;
+		}
+		.login input{
+			display: block;
+			margin: auto;
+			width:15em;
+			padding: .25em .5em;
+			border:none;
+			font-size: 0.9em;
+			
+			text-align: center;
+			width:15em;
+		}
+		.login input[value="CONNEXION"]{
+			margin-top:1em;
+			margin-bottom:1em;
+			background-color: #456ac7;
+			color: #FFF;
+			width:16em;
+		}
+
+
+		/*page menu*/
+
+
+		.menu li{
+			display: inline-block;
+			vertical-align: top;
+			margin:10px;
+			
+		}
+
+		.menu li a {
+			display: inline-block;
+			width: 120px;
+			padding:30px 10px;
+			text-decoration: none;
+			color: #FFF;
+			line-height: 1.5;
+		}
+		.menu li a span{
+			font-size: 1.5em;
+		}
+		.menu li:first-child a{
+			background: #E24D26;
+		}
+		.menu li:nth-child(2) a{
+			background: #EB9414;
+		}
+		.menu li:nth-child(3) a{
+			background: #79b530;
+		}
+		.menu li:nth-child(4) a{
+			background: #C7D210;
+		}
+		.menu li:nth-child(5) a{
+			background: #799aed;
+		}
+		.menu li:nth-child(6) a{
+			background: #456ac7;
+		}
+
+		h1{
+			text-transform: uppercase;
+			color:#456ac7;
+			font-size:2em;
+		}
+		
+		
+		/*page choix table*/
+
+
+		.choix input{
+			display:inline;
+			margin: 0.5em ;
+			text-align: center;
+			width:12em;
+			padding: .25em .25em;
+			border:1px solid #456ac7;
+			font-size: 0.9em;
+		}
+
+		.choix input:hover{
+			background: #799aed;
+			color: #FFF;
+		}
+
+
+
+		/*page listing*/
+
+
+		.listing table{
+			margin: 20px auto 40px;
+			border-collapse:  separate;
+			border-spacing: 5px;
+		}
+
+		.listing input[type="submit"]{
+			background-color: #799aed;
+			color: #FFF;
+			border: 6px solid #799aed;
+			width:10em;
+			padding: .25em .5em;
+			font-size: 0.9em;
+		}
+		.listing input[type="submit"]:hover{
+			border: 6px solid #456ac7;
+		}
+		.listing a[href="choixtable.php"]{
+
+			text-decoration: none;
+			text-align: center;
+			padding: .25em 1em;
+			font-size: 0.9em;
+			background-color: grey;
+			border: 0.5em solid grey;
+			color:#FFF;
+		}
+		.listing a[href="choixtable.php"]:hover{
+			border-color: #FFF;
+		}
+		.listing th{
+			padding: .5em;
+			border-right: 1px solid black;
+		}
+
+		.listing td{
+			background: #FFF;
+			padding: .25em;
+		}
+		.listing td:first-child{
+			color: grey; 
+		}
+		.listing td.modif,
+		.listing td.supprim{
+			background:none;
+		}
+
+
+		.update textarea{
+			width: 80%;
+			background-color: #FFF;
+			padding: 1em 1.5em;
+			border:none;
+			font-size: 0.9em;
+			margin: 5px;
+		}
+		.update textarea.texte{
+			height: 200px;
+		}
+
+		.update input[type="submit"],
+		.confirm input[type="submit"],
+		a[href='export_liste_equipe.php'],
+		a[href='export_liste_mail.php'],
+		a[href='export_liste_repas.php']{
+			text-transform: uppercase;
+			margin-top: 20px;
+			background-color: #799aed;
+			color: #FFF;
+			border: 6px solid #799aed;
+			min-width:10em;
+			padding: .25em .5em;
+			font-size: 0.9em;
+		}
+
+		.update input[type="submit"]:hover,
+		.confirm input[type="submit"]:hover,
+		a[href='export_liste_equipe.php']:hover,
+		a[href='export_liste_mail.php']:hover,
+		a[href='export_liste_repas.php']:hover{
+			border: 6px solid #456ac7;
+		}
+		a[href='export_liste_equipe.php'],
+		a[href='export_liste_mail.php'],
+		a[href='export_liste_repas.php']{
+			padding: .4em .5em;
+			display: inline-block;
+			text-decoration: none;
+		}
+		li{
+			margin-top: 20px;
+		}
+		.update p{
+			margin-bottom: 20px;
+			line-height: 1.5;
+		}
+		.update span{
+			font-weight: bold;
+		}
+		.scroll{
+			text-align:left;
+			max-height: 10em;
+			padding:.5em;
+			overflow:auto;
+			color:#000;
+		}
+		.upload{
+			margin: 40px
+		}
+		.photo tr th{
+			padding: 0;
+			margin: 0;
+		}
+		strong{
+			font-weight: bold;
+		}
+		.equipe p{
+			margin-top: 20px;
+		}
+		.equipe p strong{
+			font-weight: bold;
+		}
+
+
+
+
+
+
+
+
+
+
+
+

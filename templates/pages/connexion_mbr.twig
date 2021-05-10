@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block page %}<div class="page connexion_mbr inscription">{% endblock %}
+
+{% block contenu %}
+
+       <!--aside-->
+        {{ include('partial/_aside.twig') }} 
+
+        <section class="content">
+
+            <div class="agauche">
+
+
+                <div class="fiche membre flipInY animated">
+                    <h2>J'ai déjà un compte</h2>
+                    <div>
+                        <form method="POST" action="?page=connexion_mbr">
+                            <label for="mailok">Mail :</label><br/>
+                            <input class="mail" type="text" id="mailok" name="mailok"><div class="errorjs">.</div><br/>
+
+                            <label for="mdpok">Mot de passe :</label><br/>
+                            <input type="password" id="mdpok" name="mdpok"><div class="errorjs">.</div><br/>
+
+                            <input class="envoi bouton" type="submit" name="connexionmbr" value="CONNEXION">
+                        </form>
+                        <div class="erreur" ><p>{{msg1_membre}}</p></div>
+                    </div>
+                </div>
+
+                <div class="fiche creation flipInY animated">
+                    <h2>Je veux créer un compte</h2>
+                    <div>
+                        <form method="POST" action="?page=connexion_mbr">
+                            <label for="nom">Nom :</label><br/>
+                            <input class="verif" type="text" id="nom" name="nom"><div class="errorjs">.</div><br/>
+
+                            <label for="prenom">Prénom :</label><br/>
+                            <input class="verif" type="text" id="prenom" name="prenom"><div class="errorjs">.</div><br/>
+
+                            <label for="mail">Mail :</label><br/>
+                            <input class="mail" type="text" id="mail" name="mail"><div class="errorjs">.</div><br/>
+
+                            <label for="mdp">Mot de passe :</label><br/>
+                            <input type="password" id="mdp" name="mdp"><div class="errorjs">.</div><br/>
+
+                            <label for="mdp2">Mot de passe :</label><br/>
+                            <input type="password" id="mdp2" name="mdp2"><div class="errorjs">.</div><br/>
+
+                            <input class="envoi bouton" type="submit" name="inscriptionmbr" value="CONNEXION">
+                        </form>
+                        <div class="erreur" ><p>{{msg2_membre}}</p></div>
+                    </div>
+                </div>
+                
+          
+            </div>
+
+        </section>
+
+{% endblock %}
