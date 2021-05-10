@@ -1,10 +1,13 @@
 -----------------------------
-Rouraid
+Rouraid 2017
 -----------------------------
 
 Site pour l'organisation d'un raid sportif
+
 Projet d'étude 2016/2017
+
 Licence Professionnelle Informatique et Multimédia appliqués
+
 Université de Nice Sophia-Antipolis
 
 ----------------------------
@@ -12,8 +15,11 @@ Université de Nice Sophia-Antipolis
 TECHNOS UTILISEES :
 
 Développé en PHP avec le moteur de template Twig.
+
 Construction du CSS avec SASS
+
 Animations et vérifications des formulaires avec Jquery et Ajax
+
 Base de données SQL
 
 Création d'un back office pour la gestion du contenu par les membres de l'organisation :
@@ -33,8 +39,11 @@ POUR INSTALLATION EN LOCAL
 -----------------------------
 
 Accès Back Office en local
+
 /backoffice/login
+
 Login : test
+
 Mot de passe : hello
 
 -----------------------------
